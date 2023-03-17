@@ -10,6 +10,11 @@
       "StackName": "amplify-serverlesslab5-dev-163124",
       "StackId": "arn:aws:cloudformation:us-east-2:230395760767:stack/amplify-serverlesslab5-dev-163124/113a29d0-c50b-11ed-b7c9-02e752f24564",
       "AmplifyAppId": "dvw6enx8sxvs0"
+    },
+    "categories": {
+      "function": {
+        "lab5crypto": {}
+      }
     }
   }
 }

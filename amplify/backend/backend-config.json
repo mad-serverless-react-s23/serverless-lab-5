@@ -1,1 +1,9 @@
-{}
+{
+  "function": {
+    "lab5crypto": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  }
+}
