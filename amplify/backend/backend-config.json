@@ -1,4 +1,20 @@
 {
+  "api": {
+    "lab5api": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "lab5crypto"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "function": {
     "lab5crypto": {
       "build": true,
