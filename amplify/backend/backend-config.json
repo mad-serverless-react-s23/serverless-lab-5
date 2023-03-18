@@ -21,5 +21,23 @@
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
+  },
+  "parameters": {
+    "AMPLIFY_function_lab5crypto_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lab5crypto"
+        }
+      ]
+    },
+    "AMPLIFY_function_lab5crypto_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "lab5crypto"
+        }
+      ]
+    }
   }
 }

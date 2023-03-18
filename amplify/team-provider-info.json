@@ -13,7 +13,13 @@
     },
     "categories": {
       "function": {
-        "lab5crypto": {}
+        "lab5crypto": {
+          "deploymentBucketName": "amplify-serverlesslab5-dev-163124-deployment",
+          "s3Key": "amplify-builds/lab5crypto-667532577a314c666643-build.zip"
+        }
+      },
+      "api": {
+        "lab5api": {}
       }
     }
   }
