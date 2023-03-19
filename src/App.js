@@ -1,9 +1,6 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
-import Amplify from 'aws-amplify';
-import config from './aws-exports';
-Amplify.configure(config);
 
 const App = () => {
   // creates coins variable and sets as empty array
