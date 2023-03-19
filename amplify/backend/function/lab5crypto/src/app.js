@@ -2,6 +2,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
+const axios = require('axios')
 
 // declare a new express app
 const app = express()
@@ -16,14 +17,26 @@ app.use(function(req, res, next) {
 });
 
 app.get('/coins', function(req, res) {
-  const coins = [
-    { name: 'Bitcoin', symbol: 'BTC', price_usd: "10000" },
-    { name: 'Ethereum', symbol: 'ETH', price_usd: "400" },
-    { name: 'Litecoin', symbol: 'LTC', price_usd: "150" }
-  ]
-  res.json({
-    coins
-  })
+  let apiUrl = `https://api.coinlore.com/api/tickers?start=0&limit=10`;
+
+  if (req.apiGateway && req.apiGateway.event.queryStringParameters) {
+    const { start = 0, limit = 0} = req.apiGateway.event.queryStringParameters;
+    apiUrl = `https://api.coinlore.com/api/tickers?start=${start}&limit=${limit}`;
+  }
+
+  axios.get(apiUrl).then(
+    response => {
+      res.json({ coins: response.data.data })
+    }
+  ).catch(err => res.json({ error: err }));
+  // const coins = [
+  //   { name: 'Bitcoin', symbol: 'BTC', price_usd: "10000" },
+  //   { name: 'Ethereum', symbol: 'ETH', price_usd: "400" },
+  //   { name: 'Litecoin', symbol: 'LTC', price_usd: "150" }
+  // ]
+  // res.json({
+  //   coins
+  // })
 });
 
 /**********************
