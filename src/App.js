@@ -1,8 +1,8 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
 
-function App() {
+const App = () => {
   // creates coins variable and sets as empty array
   const [coins, updateCoins] = useState([]);
 
@@ -12,10 +12,11 @@ function App() {
     updateCoins(data.coins);
   };
 
-  // call fetch func on component load
+  // call fetch func on component load ONCE
   useEffect(() => {
     fetchCoins()
   }, []);
+  // ^^ empty array added to restrict code to run just once, the first time component loads
 
   // set up the display...
   return (
