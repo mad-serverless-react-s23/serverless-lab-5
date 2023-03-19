@@ -15,7 +15,7 @@
       "function": {
         "lab5crypto": {
           "deploymentBucketName": "amplify-serverlesslab5-dev-163124-deployment",
-          "s3Key": "amplify-builds/lab5crypto-667532577a314c666643-build.zip"
+          "s3Key": "amplify-builds/lab5crypto-6f744c67366545426351-build.zip"
         }
       },
       "api": {
