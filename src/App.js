@@ -6,8 +6,8 @@ const App = () => {
   // creates coins variable and sets as empty array
   const [coins, updateCoins] = useState([]);
 
-  // define func to all API
-  async function fetchCoins() {
+  // define func to all API - modernized...
+  const fetchCoins = async() => {
     const data = await API.get('lab5api', '/coins');
     updateCoins(data.coins);
   };
