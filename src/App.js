@@ -16,16 +16,21 @@ const App = () => {
 
   // define func to all API - modernized...
   const fetchCoins = async() => {
+    updateLoading(true);
     const { start, limit } = input;
     const data = await API.get('lab5api', `/coins?start=${start}&limit=${limit}`);
     updateCoins(data.coins);
+    updateLoading(false);
   };
 
   // call fetch func on component load ONCE
   useEffect(() => {
-    fetchCoins();
+    fetchCoins()
   }, []);
   // ^^ empty array added to restrict code to run just once, the first time component loads
+
+  // loading screen func
+  const [loading, updateLoading] = useState(true);
 
   // new input fields for limit and start, and run button
   return (
@@ -44,7 +49,9 @@ const App = () => {
         onClick={fetchCoins}
       >Fetch Coins</button>
       <hr/>
-        {coins.map((coin, index) => (
+      {loading && <h2>Loading your request...</h2>}
+        {
+          !loading && coins.map((coin, index) => (
           <div key={index}>
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
