@@ -29,27 +29,28 @@ const App = () => {
 
   // new input fields for limit and start, and run button
   return (
-    <>
-    <input
+    <div className="App">
+      <input
         onChange={e => updateInputValues('start', e.target.value)}
         placeholder="start"
       />
+      <hr/>
       <input
         onChange={e => updateInputValues('limit', e.target.value)}
         placeholder="limit"
       />
+      <hr/>
       <button
         onClick={fetchCoins}
       >Fetch Coins</button>
-      <div className="App">
+      <hr/>
         {coins.map((coin, index) => (
           <div key={index}>
             <h2>{coin.name} - {coin.symbol}</h2>
             <h5>${coin.price_usd}</h5>
           </div>
         ))}
-      </div>
-    </>
+    </div>
   );
 }
 
