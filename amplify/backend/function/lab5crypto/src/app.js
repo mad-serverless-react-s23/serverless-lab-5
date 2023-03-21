@@ -4,12 +4,10 @@ const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const axios = require('axios')
 
-// declare a new express app
 const app = express()
 app.use(bodyParser.json())
 app.use(awsServerlessExpressMiddleware.eventContext())
 
-// Enable CORS for all methods
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "*")
@@ -29,14 +27,7 @@ app.get('/coins', function(req, res) {
       res.json({ coins: response.data.data })
     }
   ).catch(err => res.json({ error: err }));
-  // const coins = [
-  //   { name: 'Bitcoin', symbol: 'BTC', price_usd: "10000" },
-  //   { name: 'Ethereum', symbol: 'ETH', price_usd: "400" },
-  //   { name: 'Litecoin', symbol: 'LTC', price_usd: "150" }
-  // ]
-  // res.json({
-  //   coins
-  // })
+
 });
 
 /**********************
