@@ -6,10 +6,18 @@ const App = () => {
   // creates coins variable and sets as empty array
   const [coins, updateCoins] = useState([]);
 
+  // function for input
+  const [input, updateInput] = useState({ limit: 5, start: 0});
+
+  // function for users to update input
+  const updateInputValues = (type, value) => updateInput(
+    { ...input, [type]: value }
+  );
+
   // define func to all API - modernized...
   const fetchCoins = async() => {
-    const { limit, start } = input;
-    const data = await API.get('lab5api', '/coins?limit=${limit}&start=${start}');
+    const { start, limit } = input;
+    const data = await API.get('lab5api', `/coins?start=${start}&limit=${limit}`);
     updateCoins(data.coins);
   };
 
@@ -19,14 +27,6 @@ const App = () => {
   }, []);
   // ^^ empty array added to restrict code to run just once, the first time component loads
 
-  // function for input
-  const [input, updateInput] = useState({ limit: 5, start: 0});
-
-  // function for users to update input
-  const updateInputValues = (type, value) => updateInput(
-    { ...input, [type]: value }
-  );
-
   // new input fields for limit and start, and run button
   return (
     <>
@@ -35,7 +35,7 @@ const App = () => {
         placeholder="start"
       />
       <input
-        onChange={e => updateInputValues('limit, e.target.value')}
+        onChange={e => updateInputValues('limit', e.target.value)}
         placeholder="limit"
       />
       <button
