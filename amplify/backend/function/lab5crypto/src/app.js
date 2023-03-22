@@ -34,9 +34,13 @@ app.get('/coins', function(req, res) {
  * Example get method *
  **********************/
 
-app.get('/item', function(req, res) {
-  // Add your code here
-  res.json({success: 'get call succeed!', url: req.url});
+app.get('/born', function(req, res) {
+  const born = [
+    { name: 'Lord Glablok', birth: '12-12-1212' }
+  ]
+  res.json({
+    born
+  })
 });
 
 app.get('/item/*', function(req, res) {
