@@ -3,18 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
 
 const App = () => {
-  // creates coins variable and sets as empty array
   const [coins, updateCoins] = useState([]);
 
-  // function for input
   const [input, updateInput] = useState({ limit: 5, start: 0});
 
-  // function for users to update input
   const updateInputValues = (type, value) => updateInput(
     { ...input, [type]: value }
   );
 
-  // define func to all API - modernized...
   const fetchCoins = async() => {
     updateLoading(true);
     const { start, limit } = input;
@@ -23,16 +19,12 @@ const App = () => {
     updateLoading(false);
   };
 
-  // call fetch func on component load ONCE
   useEffect(() => {
     fetchCoins()
   }, []);
-  // ^^ empty array added to restrict code to run just once, the first time component loads
 
-  // loading screen func
   const [loading, updateLoading] = useState(true);
 
-  // new input fields for limit and start, and run button
   return (
     <div className="App">
       <input
