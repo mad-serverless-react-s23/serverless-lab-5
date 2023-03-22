@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
+import { GithubBirth } from './GithubBirth';
 
 const App = () => {
   const [coins, updateCoins] = useState([]);
@@ -46,9 +47,10 @@ const App = () => {
           !loading && coins.map((coin, index) => (
           <div key={index}>
             <h2>{coin.name} - {coin.symbol}</h2>
-            <h5>${coin.price_usd}</h5>
+            <h4>${coin.price_usd}</h4>
           </div>
         ))}
+        <GithubBirth />
     </div>
   );
 }

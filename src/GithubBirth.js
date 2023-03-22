@@ -1,1 +1,1 @@
-export const 
+export const GithubBirth = () => <h3>This message displays</h3>
