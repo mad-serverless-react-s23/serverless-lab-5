@@ -36,7 +36,7 @@ app.get('/coins', function(req, res) {
 
 app.get('/born', function(req, res) {
   const born = [
-    { name: 'Lord Glablok', birth: '12-12-1212' }
+    { name: 'Lord Glablok', day: '12-12-1212' }
   ]
   res.json({
     born

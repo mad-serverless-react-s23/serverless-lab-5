@@ -12,7 +12,12 @@ export const GithubBirth = () => {
     useEffect(() => {
         fetchBirth()
     }, []);
-    
+   
     return (
-    <h3>This message might work, let's see...</h3>
-)}
+        birth.map((born, index) => (
+            <div key={index}>
+                <h3> {born.name} </h3>
+            </div>
+        ))
+    )
+}

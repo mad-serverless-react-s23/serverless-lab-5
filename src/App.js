@@ -43,14 +43,14 @@ const App = () => {
       >Fetch Coins</button>
       <hr/>
       {loading && <h2>Loading your request...</h2>}
-        {
-          !loading && coins.map((coin, index) => (
-          <div key={index}>
-            <h2>{coin.name} - {coin.symbol}</h2>
-            <h4>${coin.price_usd}</h4>
-          </div>
-        ))}
-        <GithubBirth />
+      {
+        !loading && coins.map((coin, index) => (
+        <div key={index}>
+          <h2>{coin.name} - {coin.symbol}</h2>
+          <h4>${coin.price_usd}</h4>
+        </div>
+      ))}
+      <GithubBirth />
     </div>
   );
 }
