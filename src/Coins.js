@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
 
 export const Coins = () => {
-    const [coins, updateCoins] = useState([]);
+  const [coins, updateCoins] = useState([]);
 
-    const [input, updateInput] = useState({ limit: 5, start: 0});
+  const [input, updateInput] = useState({ limit: 5, start: 0});
 
   const updateInputValues = (type, value) => updateInput(
     { ...input, [type]: value }
@@ -42,10 +42,10 @@ export const Coins = () => {
       <hr/>
       {loading && <h2>Loading your request...</h2>}
       {
-        !loading && coins.map((coin, index) => (
+        !loading && coins.map((x, index) => (
         <div key={index}>
-          <h2>{coin.name} - {coin.symbol}</h2>
-          <h4>${coin.price_usd}</h4>
+          <h2>{x.name} - {x.symbol}</h2>
+          <h4>${x.price_usd}</h4>
         </div>
       ))}
     </>

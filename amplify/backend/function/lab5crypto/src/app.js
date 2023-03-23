@@ -35,13 +35,13 @@ app.get('/coins', function(req, res) {
  **********************/
 
 app.get('/born', function(req, res) {
-  const born = [
-    { name: 'Lord Glablok', day: '12-12-1212' }
-  ]
-  res.json({
-    born
-  })
-});
+    const born = [
+      { name: 'Lord Glablok', day: '12-12-1212' }
+    ]
+    res.json({
+      born
+    })
+  });
 
 app.get('/item/*', function(req, res) {
   // Add your code here

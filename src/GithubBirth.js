@@ -2,20 +2,23 @@ import React, { useState, useEffect } from 'react';
 import { API } from 'aws-amplify';
 
 export const GithubBirth = () => {
-    const [birth, updateBirth] = useState([]);
+    const [born, updateBorn] = useState([]);
 
-    const fetchBirth = async() => {
+    const fetchBorn = async() => {
         const data = await API.get('lab5api', '/born');
-        updateBirth(data.birth);
+        updateBorn(data.born);
     }
 
     useEffect(() => {
-        fetchBirth()
+        fetchBorn()
     }, []);
    
     return (
         <>
             <h3> Work !!</h3>
+            {born.map(x => (
+                <h3>Hello, {x.name} </h3>
+            ))}
         </>
-    )
+    );
 }
