@@ -14,10 +14,8 @@ export const GithubBirth = () => {
     }, []);
    
     return (
-        birth.map((born, index) => (
-            <div key={index}>
-                <h3> {born.name} </h3>
-            </div>
-        ))
+        <>
+            <h3> Work !!</h3>
+        </>
     )
 }
